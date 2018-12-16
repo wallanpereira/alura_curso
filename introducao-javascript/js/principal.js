@@ -75,6 +75,7 @@ botaoAdicionar.addEventListener("click",function(event){
     var pesoTd = document.createElement('td');
     var alturaTd = document.createElement('td');
     var gorduraTd = document.createElement('td');
+    var imcTd = document.createElement('td');
 
     nomeTd.textContent = nome;
     pesoTd.textContent = peso;
@@ -85,7 +86,13 @@ botaoAdicionar.addEventListener("click",function(event){
     pacienteTr.appendChild(pesoTd);
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
 
+    console.log(pacienteTr);
+
+    var tabelaPaciente = document.querySelector('#tabela-pacientes');
+
+    tabelaPaciente.appendChild(pacienteTr);
 });
 
 
