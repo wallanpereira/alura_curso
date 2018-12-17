@@ -24,6 +24,7 @@ for (var i = 0; i < pacientes.length; i++) {
         paciente.querySelector('.info-imc').textContent = "Peso invalido!";
         pesoEhValido = false;
         paciente.classList.add('paciente-invalido');
+        /* .classList, que como o nome indica nos mostras classes que aquele HTML tem. */
     }
 
     if (altura <= 0 || altura >= 3.00) {
