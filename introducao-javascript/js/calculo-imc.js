@@ -34,10 +34,17 @@ for (var i = 0; i < pacientes.length; i++) {
     }
 
     if (pesoEhValido && alturaEhValido) {
-        var imc = peso / (altura * altura); //  100 / 2.00 * 2.00
+        var imc = calcularImc(peso,altura); //  100 / 2.00 * 2.00
 
         // Jogar valor do imc na tabela
-        paciente.querySelector('.info-imc').textContent = imc.toFixed(2); // toFixed defini quantidade de casas decimais
+        paciente.querySelector('.info-imc').textContent = imc; 
     }
     // Fim  Lógica para exibir o IMC abaixo
+}
+
+function calcularImc(peso,altura){
+    var imc = 0;
+    imc = peso / (altura * altura);
+
+    return imc.toFixed(2); // toFixed defini quantidade de casas decimais
 }
