@@ -21,7 +21,7 @@ for (var i = 0; i < pacientes.length; i++) {
 
     if (!validaPeso(peso)) {
         paciente.querySelector('.info-imc').textContent = "Peso invalido!";
-        paciente.classList.add('paciente-invalido');       
+        paciente.classList.add('paciente-invalido');
     }
 
     if (!validaAltura(altura)) {

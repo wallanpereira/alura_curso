@@ -14,11 +14,17 @@ botaoAdicionar.addEventListener('click', function (event) {
     var pacienteTr = montarTr(paciente);
 
     //Validação paciente
-    if(!validaPaciente(paciente)){
-        console.log('Paciente inválido!!!');
+    var erros = validaPaciente(paciente);
+
+    /**
+     * No momento de chamarmos a função validaPaciente(paciente), extrairemos o retorno da função para a variável erro.
+     * Se o tamanho da String for maior que 0, significa que ocorreu algum erro.
+     */
+    if (erros.length > 0) {
+        var mensagemErro = document.querySelector('.mensagem-erro');
+        mensagemErro.textContent = erros;
         return;
     }
-
 
     //Criar tabelas
     var tabelaPaciente = document.querySelector('#tabela-pacientes');
@@ -45,6 +51,7 @@ function montarTr(paciente) {
     pacienteTr.appendChild(montarTd(paciente.peso, 'info-peso'));
     pacienteTr.appendChild(montarTd(paciente.altura, 'info-altura'));
     pacienteTr.appendChild(montarTd(paciente.gordura, 'info-gordura'));
+    pacienteTr.appendChild(montarTd(paciente.imc, 'info-imc'));
 
     return pacienteTr;
 }
@@ -56,11 +63,19 @@ function montarTd(dado, classe) {
 
     return coluna;
 }
-
+/**
+ * Metodo validaPeso(x) sendo chamado do calculo-imc.js
+ * 
+ */
 function validaPaciente(paciente) {
-    if (validaPeso(paciente.peso)) {
-        return true;
-    } else {
-        return false;
+
+    var erros = [];
+
+    if (!validaAltura(paciente.altura)) {
+        erros.push('Altura é inválida!');
     }
+    if (!validaPeso(paciente.peso)) {
+        erros.push('Peso é inválido!');
+    }
+    return erros;
 }
