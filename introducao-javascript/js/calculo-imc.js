@@ -29,7 +29,7 @@ for (var i = 0; i < pacientes.length; i++) {
         paciente.classList.add('paciente-invalido');
     }
 
-    if (!validaAltura(altura) && !validaPeso(peso)) {
+    if (validaAltura(altura) && validaPeso(peso)) {
         var imc = calcularImc(peso, altura); //  100 / 2.00 * 2.00
 
         // Jogar valor do imc na tabela

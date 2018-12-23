@@ -10,6 +10,7 @@ botaoAdicionar.addEventListener('click', function (event) {
 
     //Trazendo valores dos inputs
     var paciente = obterFormPaciente(form);
+
     //montar tr e td
     var pacienteTr = montarTr(paciente);
 
@@ -29,7 +30,7 @@ botaoAdicionar.addEventListener('click', function (event) {
     var tabelaPaciente = document.querySelector('#tabela-pacientes');
     tabelaPaciente.appendChild(pacienteTr);
 
-    form.reset
+    form.reset();
 
 });
 
