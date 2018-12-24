@@ -18,18 +18,15 @@ for (var i = 0; i < pacientes.length; i++) {
      * Inicio Lógica para exibir o IMC abaixo
      *  .classList, que como o nome indica nos mostras classes que aquele HTML tem.
      **/
-
-    if (!validaPeso(peso)) {
+    if (validaPeso(peso)) {
         paciente.querySelector('.info-imc').textContent = "Peso invalido!";
         paciente.classList.add('paciente-invalido');
     }
-
-    if (!validaAltura(altura)) {
+    if (validaAltura(altura)) {
         paciente.querySelector('.info-imc').textContent = "Altura invalida!";
         paciente.classList.add('paciente-invalido');
     }
-
-    if (validaAltura(altura) && validaPeso(peso)) {
+    if (!validaAltura(altura) && !validaPeso(peso)) {
         var imc = calcularImc(peso, altura); //  100 / 2.00 * 2.00
 
         // Jogar valor do imc na tabela
@@ -45,18 +42,18 @@ function calcularImc(peso, altura) {
     return imc.toFixed(2); // toFixed defini quantidade de casas decimais
 }
 
-function validaPeso(peso) {
-    if (peso <= 0 || peso >= 500) {
-        return false;
-    } else {
+function validaAltura(altura) {
+    if (altura <= 0 || altura >= 3.00) {
         return true;
+    } else {
+        return false;
     }
 }
 
-function validaAltura(altura) {
-    if (altura <= 0 || altura >= 3.00) {
-        return false;
-    } else {
+function validaPeso(peso) {
+    if (peso <= 0 || peso >= 500) {
         return true;
+    } else {
+        return false;
     }
 }
