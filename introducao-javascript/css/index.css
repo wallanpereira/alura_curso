@@ -56,7 +56,12 @@ table {
 	width: 100%;
 	margin-bottom: .5em;
 	table-layout: fixed;
+}
 
+#filtrar-tabela {
+	width: 200px;
+	height: 35px;
+	margin-bottom: 10px;
 }
 
 td,
@@ -148,4 +153,8 @@ button:disabled {
 .fadeout {
 	opacity: 0;
 	transition: .5s;
+}
+
+.invisivel {
+	display: none;
 }
