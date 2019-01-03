@@ -144,3 +144,8 @@ button:disabled {
 .mensagem-erro {
 	color: #ec0000;
 }
+
+.fadeout {
+	opacity: 0;
+	transition: .5s;
+}

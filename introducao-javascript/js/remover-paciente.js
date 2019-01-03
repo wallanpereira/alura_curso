@@ -4,11 +4,20 @@ var pacientes = document.querySelectorAll('.paciente');
 var tabela = document.querySelector('table');
 
 tabela.addEventListener('click', function (event) {
-    var alvoEvento = event.target;
-    var paiAlvo = paiAlvo.alvoEvento;
-    paiAlvo.remove();
-    // console.log('Fui clicado!!!');
-    // console.log(event.target);
+    // var eventoAlvo = event.target;
+    // var paiAlvo = eventoAlvo.parentNode;
+    // paiAlvo.remove(); OU event.target.parentNode.remove();
+
+    if (event.target.tagName == 'TD') {
+        // tagName retorna o nome da tag maiúsculo
+        event.target.parentNode.classList.add('fadeout');
+        setTimeout(function () {
+            event.target.parentNode.remove();
+        }, 500);
+    }
+
+
+    console.log(event.target.parentNode);
 
     // Retorna o elemento pai, ou seja, o que estiver na variavel tabela.
     // console.log(this);
