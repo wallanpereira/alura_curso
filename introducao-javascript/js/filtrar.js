@@ -13,7 +13,7 @@ campoFiltro.addEventListener('input', function () {
             // var tdNome = paciente.querySelector('.info-nome');
             // var nome = tdNome.textContent;
             var nome = paciente.querySelector('.info-nome').textContent;
-
+            var expressao = new
             if (nome != this.value) {
                 paciente.classList.add('invisivel');
             } else {
