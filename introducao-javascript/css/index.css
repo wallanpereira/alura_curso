@@ -158,3 +158,9 @@ button:disabled {
 .invisivel {
 	display: none;
 }
+
+.erroAjax {
+	margin-bottom: 20px;
+	font-weight: bold;
+	color: #ec0000;
+}
