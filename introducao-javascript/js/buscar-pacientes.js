@@ -13,7 +13,21 @@ btnAdicionar.addEventListener('click', function (event) {
     xhr.open('GET', 'https://api-pacientes.herokuapp.com/pacientes');
 
     xhr.addEventListener('load', function () {
-        console.log(xhr.responseText);
+        // Console abaixo retorna os dados de texto da API
+        // console.log(xhr.responseText);
+        var resposta = xhr.responseText;
+        // Console abaixo retorna o tipo da variavel
+        console.log(typeof resposta);
+
+        /** 
+         * JSON.parse() converte o dados da requisção em um objeto javascript. 
+         * Para conseguirmos transformar a resposta, que é um texto(uma string), em um array de pacientes, usaremos um "transformador", mais precisamente um parseador de JSON para objetos do JavaScript.Para realizarmos esta tarefa usaremos o método parse().Assim, receberemos o texto em JSON, que depois será parseado.Em seguida, será retornado um objeto JavaScript.Como nossa resposta se parece com um objeto, o método entenderá isso e nos retornará um array do objetos: 
+         * 
+         */
+        var pacientes = JSON.parse(resposta);
+        console.log(pacientes);
+        // Console abaixo retorna tipo da variavel pacientes ( object )
+        console.log(typeof pacientes);
     });
 
     xhr.send();
