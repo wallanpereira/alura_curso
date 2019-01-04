@@ -28,6 +28,13 @@ btnAdicionar.addEventListener('click', function (event) {
         console.log(pacientes);
         // Console abaixo retorna tipo da variavel pacientes ( object )
         console.log(typeof pacientes);
+
+        /**
+         * Isto é, a função já montava um paciente, verificava os erros, e o adicionava na tabela.Nós poderemos chamar a função adicionaPacienteNaTabela() - com todas as ações mencionadas - , ou podemos aproveitá - la para adicionarmos os pacientes recebidos.No arquivo buscar - pacientes.js, adicionaremos adicionaPacienteNaTabela(), que por enquanto só inclui um paciente.No entanto, teremos um array com vários deles.Logo, iremos iterar pelo array usando o forEach(), e adicionaremos cada paciente contido nele.
+         */
+        pacientes.forEach(function (paciente) {
+            adicionarPacientesTabela(paciente);
+        })
     });
 
     xhr.send();

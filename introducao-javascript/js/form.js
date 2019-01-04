@@ -10,9 +10,6 @@ botaoAdicionar.addEventListener('click', function (event) {
     //Trazendo valores dos inputs
     var paciente = obterFormPaciente(form);
 
-    //montar tr e td
-    var pacienteTr = montarTr(paciente);
-
     //Validação paciente
     var erros = validaPaciente(paciente);
     console.log(erros);
@@ -26,14 +23,23 @@ botaoAdicionar.addEventListener('click', function (event) {
     }
 
     //Criar tabelas
-    var tabelaPaciente = document.querySelector('#tabela-pacientes');
-    tabelaPaciente.appendChild(pacienteTr);
+    adicionarPacientesTabela(paciente);
 
     form.reset();
 
     var mensagemErro = document.querySelector('.mensagem-erro');
     mensagemErro.innerHTML = "";
 });
+
+
+// Função abaixo monta tabela, junto com a requisição no buscar-pacientes.js
+function adicionarPacientesTabela(paciente) {
+    //montar tr e td
+    var pacienteTr = montarTr(paciente);
+    // pega minha tabela-pacientes e crie como filhos minhas tr com as td
+    var tabelaPaciente = document.querySelector('#tabela-pacientes');
+    tabelaPaciente.appendChild(pacienteTr);
+}
 
 function exibirMensagemErro(erros) {
     var ul = document.querySelector('.mensagem-erro');
